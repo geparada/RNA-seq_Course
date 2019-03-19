@@ -1,0 +1,57 @@
+#### Software Install and Data download #####
+
+This file have the instructions to replicate the RNA-seq course analysis on any unix OS system (iOS or Linux). To install all the bioinformatics tools required for this course, please follow the instructions to install conda from https://conda.io/miniconda.html. After conda is successfuly installed, please open a terminal window and enter the following commands: 
+
+
+1.- First, you need to add the bioconda channels. Run the following commands:
+        conda config --add channels r
+        conda config --add channels defaults
+        conda config --add channels conda-forge
+        conda config --add channels bioconda
+2.- Create a new conda enviroment with the software needed for the course:
+        conda create -n RNASEQ snakemake hisat2 subread sra-tools
+3.- Activate the conda enviroment:
+        source activate RNASEQ
+4.- Create a course folder and enter the it:
+        mkdir RNASEQ
+        cd RNASEQ
+5.- Create a data folder:
+      mkdir FASTQ
+6.- Copy the following files inside the RNASEQ folder:
+      -download_data.sh : This file have the commands to download the data.
+      -Snakefile: Master file to run map RNA-seq data to the genome and get the gene count tables.
+      -Analysis_Notebook.Rmd : R-markdown script to follow the data anlysis.
+      -SraRunTable.txt 
+7.- Now we need to download the FASTQ data (4.3G in TOTAL). Make sure you are inside RNASEQ folder and run the following command:
+      bash download_data.sh
+      
+      
+
+If you want to skip the RNA-seq mapping and gene count process, follow these instructions above:
+
+1.- Create a course foder and enter it: 
+        mkdir RNASEQ
+        cd RNASEQ
+2.- Copy Analysis_Notebook.Rmd and SraRunTable.txt inside the RNASEQ folder.
+3.- Create a folder inside RNASEQ named featureCounts:
+        mkdir featureCounts
+4.- Copy TOTAL.gene_count.txt inside RNASEQ/featureCounts
+
+
+
+## DATA Analysis ###
+
+
+To start the data analysis install Rstudio from https://www.rstudio.com/. Then open R studio and open Analysis_Notebook.Rmd, which has all the information to run the analysis.
+
+Any questions regarding the material, please send an email to gp7@sanger.ac.uk
+
+Best,
+Guillermo 
+
+
+
+
+
+
+
